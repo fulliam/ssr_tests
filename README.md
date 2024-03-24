@@ -3,7 +3,7 @@
 - Lightning-fast cold server start
 - Instant hot module replacement (HMR) and dev SSR
 - True on-demand compilation
-- Use `vue3 vite4.0 typescript eslint SSR pinia unocss vue-router element-plus scss`
+- Use `vue3 vite4.0 typescript eslint SSR pinia unocss vue-router element-plus scss usehead`
 
 # Getting Started
 - dev
