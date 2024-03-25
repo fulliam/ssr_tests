@@ -98,8 +98,10 @@ watchEffect(() => {
       background-color: $blue;
       border: none;
       border-radius: 10px;
+      width: 100%;
+      height: 45px;
       cursor: pointer;
-      @include Halvar-Breit(700, 14, $white);
+      @include Halvar-Breit(700, 24, $white);
     }
 
     .disabled {

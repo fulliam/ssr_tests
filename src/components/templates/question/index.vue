@@ -48,7 +48,11 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 80vh;
+  height: 85vh;
+
+  h2 {
+    @include Halvar-Breit(500, 36, $black);
+  }
 
   .answers {
     transition: opacity 0.5s;

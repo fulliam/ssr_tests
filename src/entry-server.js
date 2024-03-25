@@ -45,9 +45,7 @@ function renderMeta(meta) {
   return Object.entries(meta)
     .map(([key, value]) => {
       if (key === 'content') {
-        // Parse the content string back into an object
         value = JSON.parse(value.replace(/"/g, '"'));
-        // Then, convert the object back into a series of meta tags
         return Object.entries(value)
           .map(([name, value]) => `<meta name="${name}" content="${value}">`)
           .join('\n');

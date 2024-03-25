@@ -74,14 +74,14 @@ article {
     }
 
     span {
-        @include Halvar-Breit(500, 24, $black);
+        @include Halvar-Breit(500, 36, $black);
     }
 
     p {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      @include Golos-Text(400, 18, $black);
+      @include Golos-Text(400, 24, $black);
     }
 }
 </style>

@@ -20,4 +20,7 @@ declare module '@vue/runtime-core' {
     TemplatesQuiz: typeof import('./src/components/templates/quiz/index.vue')['default']
     TemplatesResult: typeof import('./src/components/templates/result/index.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/lib')['ElLoadingDirective']
+  }
 }

@@ -9,4 +9,10 @@ if (window.__INITIAL_STATE__) {
 
 router.isReady().then(() => {
   app.mount('#app');
+
+  const loader = document.querySelector('#app-loader');
+  if (loader) {
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 1000);
+  }
 });

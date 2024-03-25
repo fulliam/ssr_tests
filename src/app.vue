@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleThemeSwitcher">
+  <button @click="handleThemeSwitcher" class="theme-switcher">
     <el-icon v-show="currentTheme === 'dark'" :size="32"><Moon /></el-icon>
     <el-icon v-show="currentTheme === 'light'" :size="32"><Sunny /></el-icon>
   </button>
@@ -58,7 +58,10 @@ h3 {
   color: white;
 }
 
-button {
+.theme-switcher {
+  position: absolute;
+  right: 10px;
+  top: 10px;
   background: none;
   border: none;
   cursor: pointer;
