@@ -1,0 +1,141 @@
+@import "../collection/mixins";
+@import "../collection/fonts";
+
+// Halvar Breit
+@font-face {
+  @include font-load('Halvar Breit', normal, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Rg.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Rg.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Rg.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', normal, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', normal, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', bold, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Bd.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Bd.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Bd.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', bold, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', bold, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.ttf') format('truetype'))
+}
+
+
+@font-face {
+  @include font-load('Halvar Breit', 100, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Hl.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Hl.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Hl.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Th.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Th.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Th.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XTh.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XTh.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XTh.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 100, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.ttf') format('truetype'))
+}
+
+
+@font-face {
+  @include font-load('Halvar Breit', 300, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Lt.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Lt.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Lt.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 300, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 300, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.ttf') format('truetype'))
+}
+
+
+@font-face {
+  @include font-load('Halvar Breit', 500, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Md.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Md.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Md.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 500, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 500, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.ttf') format('truetype'))
+}
+
+
+@font-face {
+  @include font-load('Halvar Breit', 800, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XBd.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XBd.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XBd.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 800, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 800, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.ttf') format('truetype'))
+}
+
+
+@font-face {
+  @include font-load('Halvar Breit', 900, normal, swap, url('assets/fonts/HalvarBreit/HalvarBreit-Blk.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-Blk.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-Blk.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 900, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Halvar Breit', 900, italic, swap, url('assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.woff2') format('woff2'), url('assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.woff') format('woff'), url('assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.ttf') format('truetype'))
+}
+
+// Golos Text
+@font-face {
+  @include font-load('Golos Text', 400, normal, swap, url('assets/fonts/GolosText/GolosText-Regular.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Golos Text', 500, normal, swap, url('assets/fonts/GolosText/GolosText-Medium.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Golos Text', 600, normal, swap, url('assets/fonts/GolosText/GolosText-SemiBold.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Golos Text', 700, normal, swap, url('assets/fonts/GolosText/GolosText-Bold.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Golos Text', 800, normal, swap, url('assets/fonts/GolosText/GolosText-ExtraBold.ttf') format('truetype'))
+}
+
+@font-face {
+  @include font-load('Golos Text', 900, normal, swap, url('assets/fonts/GolosText/GolosText-Black.ttf') format('truetype'))
+}

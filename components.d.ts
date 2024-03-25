@@ -10,12 +10,14 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/lib')['ElButton']
-    ElCard: typeof import('element-plus/lib')['ElCard']
-    ElForm: typeof import('element-plus/lib')['ElForm']
-    ElFormItem: typeof import('element-plus/lib')['ElFormItem']
-    ElInput: typeof import('element-plus/lib')['ElInput']
+    ElIcon: typeof import('element-plus/lib')['ElIcon']
+    ElRate: typeof import('element-plus/lib')['ElRate']
     ElSwitch: typeof import('element-plus/lib')['ElSwitch']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TemplatesAnswer: typeof import('./src/components/templates/answer/index.vue')['default']
+    TemplatesQuestion: typeof import('./src/components/templates/question/index.vue')['default']
+    TemplatesQuiz: typeof import('./src/components/templates/quiz/index.vue')['default']
+    TemplatesResult: typeof import('./src/components/templates/result/index.vue')['default']
   }
 }

@@ -5,7 +5,7 @@
     "sourceMap": true,
     "strict": true,
     "noUnusedLocals": true,
-    "tsx": "preserve",
+    // "tsx": "preserve",
     "jsx": "preserve",
     "noImplicitReturns": true,
     "moduleResolution": "node",

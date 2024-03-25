@@ -1,6 +1,6 @@
 import 'uno.css';
 import { renderToString } from 'vue/server-renderer';
-import { renderSSRHead } from '@unhead/ssr'
+import { renderSSRHead } from '@unhead/ssr';
 import { createApp } from './main';
 
 function renderPreloadLinks(modules, manifest) {
@@ -43,22 +43,22 @@ function renderTeleports(teleports) {
 function renderMeta(meta) {
   if (!meta) return '';
   return Object.entries(meta)
-      .map(([key, value]) => {
-          if (key === "content") {
-              // Parse the content string back into an object
-              value = JSON.parse(value.replace(/"/g, '"'));
-              // Then, convert the object back into a series of meta tags
-              return Object.entries(value)
-                  .map(([name, value]) => `<meta name="${name}" content="${value}">`)
-                  .join('\n');
-          } else {
-              if (key === "headTags" || key === "bodyTags" || key === "htmlAttrs" || key === "bodyAttrs" || key === "bodyTagsOpen") {
-                  return `${value}`;
-              }
-              return `<meta ${key}="${value}">`;
-          }
-      })
-      .join('\n');
+    .map(([key, value]) => {
+      if (key === 'content') {
+        // Parse the content string back into an object
+        value = JSON.parse(value.replace(/"/g, '"'));
+        // Then, convert the object back into a series of meta tags
+        return Object.entries(value)
+          .map(([name, value]) => `<meta name="${name}" content="${value}">`)
+          .join('\n');
+      } else {
+        if (key === 'headTags' || key === 'bodyTags' || key === 'htmlAttrs' || key === 'bodyAttrs' || key === 'bodyTagsOpen') {
+          return `${value}`;
+        }
+        return `<meta ${key}="${value}">`;
+      }
+    })
+    .join('\n');
 }
 
 export async function render(url, manifest) {

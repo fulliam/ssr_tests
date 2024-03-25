@@ -1,24 +1,39 @@
 <template>
-  <div class="index">
-    <el-switch v-model="isActive" active-color="#13ce66" inactive-color="#ff4949">
-      switch
-    </el-switch>
-  </div>
+  <section>
+    <Quiz
+      v-if="!showResults"
+      :questions="questions"
+      @finished="showResults = true"
+    />
+    <Results
+      v-else
+      :result="results"
+      @reset="showResults = false"
+    />
+  </section>
 </template>
 
-<script lang="ts">
-import { ElSwitch } from 'element-plus';
-import 'element-plus/theme-chalk/el-switch.css';
+<script setup lang="ts">
 import { ref } from 'vue';
+import Quiz from '@/components/templates/quiz/index.vue';
+import Results from '@/components/templates/result/index.vue';
+import { useStore } from '@/store/quiz';
 
-export default {
-  name: 'Index',
-  components: {
-    ElSwitch
-  },
-  setup() {
-    const isActive = ref(false);
-    return { isActive };
-  }
-};
+const store = useStore();
+
+let questions = store.questions;
+let showResults = ref(false);
+
+const results = computed(() => {
+  return showResults.value ? store.getResults() : '';
+});
 </script>
+
+<style scoped lang="scss">
+section {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+}
+</style>

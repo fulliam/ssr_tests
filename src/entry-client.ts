@@ -1,6 +1,5 @@
 import { createApp } from './main';
 import 'uno.css';
-import '@/assets/css/index.css';
 import 'element-plus/theme-chalk/base.css';
 const { app, router, store } = createApp();
 

@@ -10,17 +10,17 @@ export default function () {
         path: '/',
         name: 'index',
         component: () => import('@/views/index.vue')
-      },
-      {
-        path: '/user',
-        name: 'user',
-        component: () => import('@/views/user.vue')
-      },
-      {
-        path: '/market',
-        name: 'market',
-        component: () => import('@/views/market')
       }
+      // {
+      //   path: '/user',
+      //   name: 'user',
+      //   component: () => import('@/views/user.vue')
+      // },
+      // {
+      //   path: '/market',
+      //   name: 'market',
+      //   component: () => import('@/views/market')
+      // }
     ]
   });
 }

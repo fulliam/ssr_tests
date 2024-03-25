@@ -1,0 +1,20 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  background-color: $pink;
+}
+
+.container {
+  width: 100%;
+  // max-width: 1800px;
+  margin: 0 auto;
+  padding: 0px 40px 20px 40px;
+  // @include tablet {
+  //   padding: 0 50px;
+  // }
+  // @include phone {
+  //   padding: 0 20px;
+  // }
+}
