@@ -9,7 +9,13 @@
   </head>
   <body>
     <!--app-teleports-->
-    <div id="app-loader">Загрузка...</div>
+    <div id="app-loader">
+      <div class="loader">
+        <span class="load-dot"></span>
+        <span class="load-dot"></span>
+        <span class="load-dot"></span>
+      </div>
+    </div>
     <div id="app"><!--app-html--></div>
     <script type="module" src="/src/entry-client.ts"></script>
     <script>
@@ -35,6 +41,44 @@
         background-color: rgb(175, 109, 203);
         color: black;
         transition: opacity 0.4s;
+      }
+
+      .loader {
+        position: relative;
+      }
+
+      .load-dot {
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: #fff;
+        animation: bounce 1.3s linear infinite;
+      }
+
+      .load-dot:nth-child(1) {
+        left: -1.5rem;
+      }
+
+      .load-dot:nth-child(2) {
+        animation-delay: -1s;
+      }
+
+      .load-dot:nth-child(3) {
+        right: -2.5rem;
+        animation-delay: -0.8s;
+      }
+
+      @keyframes bounce {
+        0%,
+        66%,
+        100% {
+            transform: initial;
+        }
+
+        33% {
+            transform: translatey(-1rem);
+        }
       }
     </style>
   </body>

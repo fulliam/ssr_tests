@@ -12,7 +12,7 @@
     </h3>
     <p>
       {{ description }}
-      <el-rate v-model="rate" :colors="colors" />
+      <!-- <el-rate v-model="rate" :colors="colors" /> -->
     </p>
   </article>
 </template>
@@ -53,9 +53,9 @@ const handleChange = (value: boolean) => {
   emit('update:modelValue', value);
 };
 
-const rate = ref(0);
+// const rate = ref(0);
 
-const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900']);
+// const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900']);
 </script>
 
 <style scoped lang="scss">
