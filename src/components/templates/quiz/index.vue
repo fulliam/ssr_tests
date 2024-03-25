@@ -102,10 +102,24 @@ watchEffect(() => {
       height: 45px;
       cursor: pointer;
       @include Halvar-Breit(700, 24, $white);
+      transition: background-color 0.3s, scale 0.3s;
+
+      &:hover {
+        background-color: darken($blue, 10%);
+      }
+
+      &:active {
+        scale: 0.85;
+      }
     }
 
     .disabled {
+      pointer-events: none;
       background-color: $grey;
+
+      &:hover {
+        background-color: $grey;
+      }
     }
   }
 

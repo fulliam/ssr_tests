@@ -65,12 +65,14 @@ article {
     border-radius: 10px;
     padding: 0 10px 0 10px;
     background-color: $violet;
+    border: 2px solid $black;
 
     h3 {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      margin: 0;
     }
 
     span {
