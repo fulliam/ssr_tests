@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <h2>{{ question }}</h2>
+    <h2 v-html="question"></h2>
     <div
       v-for="(answer, index) in answers"
       :key="index"
@@ -47,11 +47,20 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
 .question {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 40px;
   height: 85vh;
 
   h2 {
-    @include Halvar-Breit(500, 36, $black);
+    display: flex;
+    flex-direction: column;
+    background: #00a485;
+    padding: 10px;
+    border: 2px solid black;
+    border: dashed;
+    margin: 20px;
+    box-shadow: 10px 10px 0px black;
+    letter-spacing: 5px;
+    @include Halvar-Breit(500, 32, $black);
   }
 
   .answers {

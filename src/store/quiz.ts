@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia';
+import axios from 'axios';
 
 export const useStore = defineStore({
   id: 'main',
   state: () => ({
     questions: [
       {
-        question: 'What is your favorite color?',
+        question: 'What is...  <br/><span style="background-color: #9721c2; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: end; border: 2px solid black;">...your</span> favorite color?',
         answers: [
           { text: 'Red', description: 'A vibrant color', value: false },
           { text: 'Blue', description: 'The color of the sky', value: false },
@@ -27,7 +28,8 @@ export const useStore = defineStore({
           { text: 'Birds', description: 'Free and colorful', value: false }
         ]
       }
-    ]
+    ],
+    result: ''
   }),
   actions: {
     updateAnswer(questionIndex: number, answerIndex: number, value: boolean) {
@@ -39,37 +41,39 @@ export const useStore = defineStore({
         }
       });
     },
-    getResults() {
-      const results = this.questions.map(question =>
-        question.answers.findIndex(answer => answer.value === true)
-      );
+    async getResults() {
+      const questionData = this.questions.map(question => {
+        return {
+          question: question.question,
+          answers: question.answers
+        };
+      });
 
-      const combinations = [
-        { combination: [0, 0, 0], result: 'You prefer red, dislike ice cream, and love cats!' },
-        { combination: [0, 0, 1], result: 'You prefer red, dislike ice cream, and love dogs!' },
-        { combination: [0, 0, 2], result: 'You prefer red, dislike ice cream, and love birds!' },
-        { combination: [0, 1, 0], result: 'You prefer red, love ice cream, and love cats!' },
-        { combination: [0, 1, 1], result: 'You prefer red, love ice cream, and love dogs!' },
-        { combination: [0, 1, 2], result: 'You prefer red, love ice cream, and love birds!' },
-        { combination: [1, 0, 0], result: 'You prefer blue, dislike ice cream, and love cats!' },
-        { combination: [1, 0, 1], result: 'You prefer blue, dislike ice cream, and love dogs!' },
-        { combination: [1, 0, 2], result: 'You prefer blue, dislike ice cream, and love birds!' },
-        { combination: [1, 1, 0], result: 'You prefer blue, love ice cream, and love cats!' },
-        { combination: [1, 1, 1], result: 'You prefer blue, love ice cream, and love dogs!' },
-        { combination: [1, 1, 2], result: 'You prefer blue, love ice cream, and love birds!' },
-        { combination: [2, 0, 0], result: 'You prefer green, dislike ice cream, and love cats!' },
-        { combination: [2, 0, 1], result: 'You prefer green, dislike ice cream, and love dogs!' },
-        { combination: [2, 0, 2], result: 'You prefer green, dislike ice cream, and love birds!' },
-        { combination: [2, 1, 0], result: 'You prefer green, love ice cream, and love cats!' },
-        { combination: [2, 1, 1], result: 'You prefer green, love ice cream, and love dogs!' },
-        { combination: [2, 1, 2], result: 'You prefer green, love ice cream, and love birds!' }
-      ];
+      try {
+        const response = await axios.post('http://localhost:5050/api/combinations/', questionData);
+        const { combinations } = response.data;
+        console.log('data', response.data);
+        const results = this.questions.map(question =>
+          question.answers.findIndex(answer => answer.value === true)
+        );
 
-      const output = combinations.find(
-        item => JSON.stringify(item.combination) === JSON.stringify(results)
-      );
+        // Find the matching result
+        const output = combinations.find(
+          (item: any) => JSON.stringify(item.combination) === JSON.stringify(results)
+        );
 
-      return output ? output.result : 'Your preferences are unique and do not fit our conventional categories!';
+        if (output) {
+          console.log('Matched combination:', output);
+          this.result = output.result;
+        } else {
+          console.log('No matching combination found');
+          this.result = 'No matching combination found';
+        }
+
+      } catch (error) {
+        console.error('Error fetching combinations:', error);
+        return 'Error fetching combinations';
+      }
     },
     resetState() {
       this.questions.forEach(question =>

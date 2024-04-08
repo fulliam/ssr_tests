@@ -129,14 +129,14 @@ watchEffect(() => {
     gap: 10px;
 
     .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       background-color: $grey;
     }
 
     .active-dot {
-      background-color: $blue;
+      background-color: #21c2c2;
     }
   }
 }

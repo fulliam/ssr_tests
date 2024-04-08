@@ -5,8 +5,8 @@
       <el-switch
         v-model="isActive"
         size="large"
-        active-color="#12cc49"
-        inactive-color="#ea5670"
+        active-color="#00a485"
+        inactive-color="#21c2c2"
         @change="handleChange"
       />
     </h3>
@@ -60,12 +60,42 @@ const handleChange = (value: boolean) => {
 
 <style scoped lang="scss">
 article {
+    --el-color-black: black;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     padding: 0 10px 0 10px;
-    background-color: $violet;
-    border: 2px solid $black;
+    background: $yellow;
+    border: 2px solid black;
+    box-shadow: 15px 15px 0px $violet;
+    position: relative;
+    z-index: 2;
+    animation: slideAnimation 3s forwards;
+
+    @keyframes slideAnimation {
+      0% {
+        transform: translateX(-110%);
+        box-shadow: 350vw 15px 0px $violet;
+      }
+      100% {
+        transform: translateX(0);
+        box-shadow: 15px -15px 0px $violet;
+      }
+      // 75% {
+      //   transform: translateX(0);
+      //   box-shadow: 15px -15px 0px $violet;
+      // }
+      // 100% {
+      //   transform: translateX(110%);
+      //   box-shadow: -350vw 15px 0px $violet;
+      // }
+    }
+
+    .el-switch {
+      transform: scale(2);
+      margin-top: 15px;
+      margin-right: 40px;
+    }
 
     h3 {
       display: flex;

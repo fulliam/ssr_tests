@@ -3,7 +3,7 @@
     <Quiz
       v-if="!showResults"
       :questions="questions"
-      @finished="showResults = true"
+      @finished="handleQuizFinish"
     />
     <Results
       v-else
@@ -25,8 +25,13 @@ let questions = store.questions;
 let showResults = ref(false);
 
 const results = computed(() => {
-  return showResults.value ? store.getResults() : '';
+  return showResults.value ? store.result : '';
 });
+
+const handleQuizFinish = async () => {
+  await store.getResults();
+  showResults.value = true;
+};
 </script>
 
 <style scoped lang="scss">

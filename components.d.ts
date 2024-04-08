@@ -19,6 +19,8 @@ declare module '@vue/runtime-core' {
     TemplatesQuestion: typeof import('./src/components/templates/question/index.vue')['default']
     TemplatesQuiz: typeof import('./src/components/templates/quiz/index.vue')['default']
     TemplatesResult: typeof import('./src/components/templates/result/index.vue')['default']
+    TemplatesUIInputsCheckbox: typeof import('./src/components/templates/UI/Inputs/Checkbox/index.vue')['default']
+    UIInputsCheckbox: typeof import('./src/components/UI/Inputs/Checkbox/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/lib')['ElLoadingDirective']
