@@ -14,14 +14,14 @@ export const useStore = defineStore({
         ]
       },
       {
-        question: 'Do you like ice cream?',
+        question: 'Do <span style="background-color: #fd4868; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">you</span> like ice cream?',
         answers: [
           { text: 'Yes', description: 'I love it!', value: false },
           { text: 'No', description: 'Not really my taste', value: false }
         ]
       },
       {
-        question: 'Which animal do you prefer?',
+        question: 'Which animal do <span style="background-color: #fde948; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black; border-radius: 20px;">you</span> prefer?',
         answers: [
           { text: 'Cats', description: 'Independent and graceful', value: false },
           { text: 'Dogs', description: 'Loyal and energetic', value: false },

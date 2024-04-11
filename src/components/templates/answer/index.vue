@@ -60,17 +60,17 @@ const handleChange = () => {
 
 <style scoped lang="scss">
 button {
-    --el-color-black: black;
+  --el-color-black: black;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    padding: 0 10px 0 10px;
-    background: $yellow;
-    border: 2px solid black;
-    box-shadow: 15px 15px 0px $violet;
+    padding: 24px 16px 0 24px;
+    background: rgba(206, 206, 186, 0.075);
+    border: 2px solid --el-color-black;
+    box-shadow: 15px 15px 0px #9721c2;
     position: relative;
     z-index: 2;
-    animation: slideAnimation 3s forwards;
+    animation: slideAnimation-473dba16 3s forwards;
     cursor: pointer;
     width: 100%;
     transition: background 0.4s;
