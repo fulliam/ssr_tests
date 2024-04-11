@@ -4,6 +4,7 @@
       :question="questions[currentQuestion].question"
       :answers="questions[currentQuestion].answers"
       :question-index="currentQuestion"
+      @next-step="nextQuestion"
     />
 
     <div class="progress-dots">

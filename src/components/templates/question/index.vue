@@ -36,10 +36,15 @@ const props = defineProps({
   }
 });
 
+const emit = defineEmits([
+  'nextStep'
+]);
+
 const store = useStore();
 
 const updateSwitch = (answerIndex: number, value: boolean) => {
   store.updateAnswer(props.questionIndex, answerIndex, value);
+  emit('nextStep');
 };
 </script>
 

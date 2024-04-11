@@ -1,20 +1,20 @@
 <template>
-  <article>
+  <button @click="handleChange">
     <h3>
       <span>{{ text }}</span>
-      <el-switch
+      <!-- <el-switch
         v-model="isActive"
         size="large"
         active-color="#00a485"
         inactive-color="#21c2c2"
         @change="handleChange"
-      />
+      /> -->
     </h3>
     <p>
       {{ description }}
       <!-- <el-rate v-model="rate" :colors="colors" /> -->
     </p>
-  </article>
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -49,8 +49,8 @@ watch(
   { immediate: true }
 );
 
-const handleChange = (value: boolean) => {
-  emit('update:modelValue', value);
+const handleChange = () => {
+  emit('update:modelValue', true);
 };
 
 // const rate = ref(0);
@@ -59,7 +59,7 @@ const handleChange = (value: boolean) => {
 </script>
 
 <style scoped lang="scss">
-article {
+button {
     --el-color-black: black;
     display: flex;
     flex-direction: column;
@@ -71,6 +71,13 @@ article {
     position: relative;
     z-index: 2;
     animation: slideAnimation 3s forwards;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.4s;
+
+    &:hover {
+      background-color: lighten($violet, 20%);
+    }
 
     @keyframes slideAnimation {
       0% {
