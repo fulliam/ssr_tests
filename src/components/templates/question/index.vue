@@ -55,6 +55,11 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
   gap: 40px;
   height: 85vh;
 
+  @include phone {
+      gap: 00px;
+      height: 100%;
+    }
+
   h2 {
     display: flex;
     flex-direction: column;
@@ -62,15 +67,28 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
     padding: 10px;
     border: 2px solid black;
     border: dashed;
-    margin: 20px;
-    box-shadow: 10px 10px 0px black;
+    margin: 65px 65px 0px 65px;
+    position: relative;
+    left: -2%;
+    box-shadow: 10px 10px 0px $violet;
     letter-spacing: 5px;
     @include Halvar-Breit(500, 32, $black);
+
+    @include phone {
+      margin: 0;
+      margin-bottom: 20px;
+
+      @include Halvar-Breit(400, 16, $black);
+    }
   }
 
   .answers {
     transition: opacity 0.5s;
-    animation: showIn 0.5s forwards;
+    animation: showIn-f5995dad 0.5s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   @keyframes showIn {

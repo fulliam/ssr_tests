@@ -86,7 +86,22 @@ watchEffect(() => {
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  min-width: 90vw;
+  max-height: 90vw;
   position: relative;
+  // border-radius: 20px 0 20px 0;
+  padding: 28px;
+  box-shadow: inset 10px 10px $violet;
+  overflow: hidden;
+  height: 85vh;
+  min-height: 85vh;
+  max-height: 85vh;
+  overflow: hidden;
+
+  @include phone {
+      margin: 0;
+      padding: 30px 15px 30px 0px;
+  }
 
   .controls {
     display: flex;
@@ -98,10 +113,11 @@ watchEffect(() => {
     button {
       background-color: $blue;
       border: none;
-      border-radius: 10px;
+      // border-radius: 10px;
       width: 100%;
       height: 45px;
       cursor: pointer;
+      box-shadow: 10px 10px black;
       @include Halvar-Breit(700, 24, $white);
       transition: background-color 0.3s, scale 0.3s;
 
@@ -137,7 +153,7 @@ watchEffect(() => {
     }
 
     .active-dot {
-      background-color: #21c2c2;
+      background-color: $violet;
     }
   }
 }

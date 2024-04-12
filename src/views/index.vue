@@ -5,6 +5,7 @@
       :questions="questions"
       @finished="handleQuizFinish"
     />
+
     <Results
       v-else
       :result="results"

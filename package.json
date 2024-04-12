@@ -5,7 +5,7 @@
   "author": "",
   "type": "module",
   "scripts": {
-    "dev": "node server",
+    "dev": "node server --host=0.0.0.0",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",

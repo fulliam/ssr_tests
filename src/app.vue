@@ -60,15 +60,26 @@ h3 {
 
 .theme-switcher {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  background: none;
-  border: none;
+  right: 5px;
+  top: 5px;
+  background: #f8b1ff;
+  border: 5px solid $violet;
+  padding: 5px;
+  height: 42px;
+  width: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.3s, background 0.3s;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
-    color: $violet;
+    color: white;
+    background: darken(#f8b1ff, 20%);
   }
 }
 </style>

@@ -37,3 +37,14 @@
     box-shadow: 0 0 0 100vmax $color;
     clip-path: inset(0 -100vmax);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
+@font-face {
+    font-family: "Irish Grover";
+    src: url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap') format('woff2');
+}
+
+@mixin Irish-Grover($weight, $size, $color: null, $height: 1, $style: normal) {
+    @include font("Irish Grover", $weight, $size, $color, $height, $style);
+}

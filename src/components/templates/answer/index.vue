@@ -1,18 +1,12 @@
 <template>
   <button @click="handleChange">
     <h3>
-      <span>{{ text }}</span>
-      <!-- <el-switch
-        v-model="isActive"
-        size="large"
-        active-color="#00a485"
-        inactive-color="#21c2c2"
-        @change="handleChange"
-      /> -->
+      <span :style="{ color: titleColors[text] }">
+        {{ text }}
+      </span>
     </h3>
     <p>
       {{ description }}
-      <!-- <el-rate v-model="rate" :colors="colors" /> -->
     </p>
   </button>
 </template>
@@ -53,9 +47,13 @@ const handleChange = () => {
   emit('update:modelValue', true);
 };
 
-// const rate = ref(0);
-
-// const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900']);
+const titleColors = {
+  'Red': '#ff0063',
+  'Green': '#50b2ea',
+  'Blue': '#50ea53',
+  'Yes' : '#2bb116',
+  'No': '#bc7912'
+};
 </script>
 
 <style scoped lang="scss">
@@ -63,8 +61,8 @@ button {
   --el-color-black: black;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    padding: 24px 16px 0 24px;
+    // border-radius: 10px;
+    padding: 20px;
     background: rgba(206, 206, 186, 0.075);
     border: 2px solid --el-color-black;
     box-shadow: 15px 15px 0px #9721c2;
@@ -72,11 +70,23 @@ button {
     z-index: 2;
     animation: slideAnimation-473dba16 3s forwards;
     cursor: pointer;
-    width: 100%;
-    transition: background 0.4s;
+    width: 90%;
+    height: 20%;
+    transition: background 0.4s, color 0.4s;
+    left: -2%;
+
+    @include phone {
+        margin: 0;
+        padding: 40px;
+        white-space: nowrap;
+    }
 
     &:hover {
       background-color: lighten($violet, 20%);
+    }
+
+    &:active {
+      background-color: lighten($green, 20%);
     }
 
     @keyframes slideAnimation {
@@ -88,20 +98,6 @@ button {
         transform: translateX(0);
         box-shadow: 15px -15px 0px $violet;
       }
-      // 75% {
-      //   transform: translateX(0);
-      //   box-shadow: 15px -15px 0px $violet;
-      // }
-      // 100% {
-      //   transform: translateX(110%);
-      //   box-shadow: -350vw 15px 0px $violet;
-      // }
-    }
-
-    .el-switch {
-      transform: scale(2);
-      margin-top: 15px;
-      margin-right: 40px;
     }
 
     h3 {
@@ -113,14 +109,18 @@ button {
     }
 
     span {
-        @include Halvar-Breit(500, 36, $black);
+        @include Irish-Grover(400, 34, $black, 1.5);
     }
 
     p {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      @include Golos-Text(400, 24, $black);
+      @include Irish-Grover(400, 28, $black, 1.5);
+
+      @include phone {
+          @include Irish-Grover(400, 14, $black, 1.5);
+      }
     }
 }
 </style>
