@@ -61,7 +61,8 @@ button {
   --el-color-black: black;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    justify-content: baseline;
+    padding: 20px;
     background: #a607e099;
     border: none;
     border-radius: 12px;
@@ -72,6 +73,7 @@ button {
     width: 100%;
     gap: 20px;
     transition: scale 0.4s;
+    text-align: start;
 
     @include phone {
         margin: 0;
@@ -83,22 +85,26 @@ button {
     }
 
     h3 {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
+      // align-items: center;
       margin: 0;
+      // word-wrap: break-word;
+      white-space: normal;
     }
 
     span {
-        @include Irish-Grover(400, 34, $black, 1.5);
+        word-wrap: break-word;
+        @include Halvar-Breit(400, 18, $black, 1.5);
     }
 
     p {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      @include Irish-Grover(400, 28, $black, 1.5);
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
+      word-wrap: break-word;
+      @include Irish-Grover(400, 14, $black, 1.5);
 
       @include phone {
           @include Irish-Grover(400, 14, $black, 1.5);

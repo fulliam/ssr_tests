@@ -12,6 +12,9 @@
         :text="answer.text"
         :description="answer.description"
         :model-value="answer.value"
+        :class="{
+          'active': answer.value,
+        }"
         @update:model-value="updateSwitch(index, $event)"
       />
     </div>
@@ -103,6 +106,10 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
     justify-content: center;
     align-items: center;
     padding-top: 20px;
+
+    .active {
+      background-color: #00a485;
+    }
   }
 }
 </style>

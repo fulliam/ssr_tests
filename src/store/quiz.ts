@@ -6,32 +6,53 @@ export const useStore = defineStore({
   state: () => ({
     questions: [
       {
-        src: './images/chechick.jpg',
-        alt: 'Чечик это нейтрал',
-        question: 'What is...  <br/><span style="background-color: #9721c2; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">...your</span> favorite color?',
+        src: './images/question1.jpg',
+        alt: 'Вопрос 1',
+        question: 'Как вы обычно проводите свой досуг?',
         answers: [
-          { text: 'Red', description: 'A vibrant color', value: false },
-          { text: 'Blue', description: 'The color of the sky', value: false },
-          { text: 'Green', description: 'Nature`s favorite', value: false }
+          { text: 'Читаю книги или смотрю фильмы', description: 'Оценка интроверта', value: false, type: 'education' },
+          { text: 'Провожу время с друзьями', description: 'Оценка экстраверта', value: false, type: 'teamwork' },
+          { text: 'Рисую или пишу', description: 'Оценка эмоциональной личности', value: false, type: 'art' }
         ]
       },
       {
-        src: './images/masik.jpg',
-        alt: 'Масик это ',
-        question: 'Do <span style="background-color: #fd4868; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">you</span> like ice cream?',
+        src: './images/question2.jpg',
+        alt: 'Вопрос 2',
+        question: 'Если бы вы могли выбрать одну суперспособность, что бы это было?',
         answers: [
-          { text: 'Yes', description: 'I love it!', value: false },
-          { text: 'No', description: 'Not really my taste', value: false }
+          { text: 'Понимать и говорить на всех языках', description: 'Оценка общительной личности', value: false, type: 'teamwork' },
+          { text: 'Путешествовать во времени', description: 'Оценка приключенческого духа', value: false, type: 'teamwork' },
+          { text: 'Читать мысли', description: 'Оценка эмпатии', value: false, type: 'teamwork' }
         ]
       },
       {
-        src: './images/shtrikh.jpg',
-        alt: 'Штрих это ',
-        question: 'Which animal do <span style="background-color: #fde948; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">you</span> prefer?',
+        src: './images/question3.jpg',
+        alt: 'Вопрос 3',
+        question: 'Какой тип книг вы предпочитаете?',
         answers: [
-          { text: 'Cats', description: 'Independent and graceful', value: false },
-          { text: 'Dogs', description: 'Loyal and energetic', value: false },
-          { text: 'Birds', description: 'Free and colorful', value: false }
+          { text: 'Фантастика или фэнтези', description: 'Оценка креативной личности', value: false, type: 'teamwork' },
+          { text: 'Научная литература', description: 'Оценка аналитического мышления', value: false, type: 'teamwork' },
+          { text: 'Биографии или исторические книги', description: 'Оценка реалистичной личности', value: false, type: 'teamwork' }
+        ]
+      },
+      {
+        src: './images/question4.jpg',
+        alt: 'Вопрос 4',
+        question: 'Какой вид спорта вам нравится больше всего?',
+        answers: [
+          { text: 'Командные игры (футбол, баскетбол)', description: 'Оценка командной работы', value: false, type: 'teamwork' },
+          { text: 'Игры с мячом (пинг-понг, теннис)', description: 'Оценка скорости реакции', value: false, type: 'reaction' },
+          { text: 'Индивидуальные занятия (бег, плавание)', description: 'Оценка самодисциплины', value: false, type: 'discipline' }
+        ]
+      },
+      {
+        src: './images/question5.jpg',
+        alt: 'Вопрос 5',
+        question: 'Какой ваш любимый жанр музыки?',
+        answers: [
+          { text: 'Рок', description: 'Оценка независимости', value: false, type: 'independence' },
+          { text: 'Поп', description: 'Оценка современности', value: false, type: 'modernity' },
+          { text: 'Классика', description: 'Оценка способности ценить искусство', value: false, type: 'art_appreciation' }
         ]
       }
     ],
