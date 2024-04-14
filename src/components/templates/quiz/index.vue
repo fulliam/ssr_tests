@@ -1,18 +1,24 @@
 <template>
   <div v-if="questions && questions.length > 0" class="quiz">
     <Question
+      :src="questions[currentQuestion].src"
+      :alt="questions[currentQuestion].alt"
+
       :question="questions[currentQuestion].question"
       :answers="questions[currentQuestion].answers"
       :question-index="currentQuestion"
       @next-step="nextQuestion"
     />
-
     <div class="progress-dots">
       <div
         v-for="(question, index) in questions"
         :key="index"
         class="dot"
-        :class="{ 'active-dot': index === currentQuestion }"
+        :class="{
+          'active': index === currentQuestion,
+          'checked': question.answers.some((answer: any) => answer.value === true),
+          'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
+        }"
       >
       </div>
     </div>
@@ -84,23 +90,20 @@ watchEffect(() => {
 .quiz {
   display: flex;
   flex-direction: column;
+  // justify-content: space-between;
+  align-items: center;
   gap: 20px;
   width: 100%;
+  height: 100%;
   min-width: 90vw;
-  max-height: 90vw;
-  position: relative;
-  // border-radius: 20px 0 20px 0;
-  padding: 28px;
-  box-shadow: inset 10px 10px $violet;
-  overflow: hidden;
-  height: 85vh;
-  min-height: 85vh;
-  max-height: 85vh;
-  overflow: hidden;
+  // position: relative;
+  // padding: 28px;
+  // padding-top: 0;
 
   @include phone {
       margin: 0;
       padding: 30px 15px 30px 0px;
+      padding-top: 0;
   }
 
   .controls {
@@ -112,21 +115,22 @@ watchEffect(() => {
 
     button {
       background-color: $blue;
+      border-radius: 10px;
       border: none;
-      // border-radius: 10px;
       width: 100%;
       height: 45px;
       cursor: pointer;
-      box-shadow: 10px 10px black;
+      // box-shadow: 10px 10px black;
+      transition: background-color 0.3s, scale 0.3s; //, box-shadow 0.3s;
       @include Halvar-Breit(700, 24, $white);
-      transition: background-color 0.3s, scale 0.3s;
 
       &:hover {
         background-color: darken($blue, 10%);
       }
 
       &:active {
-        scale: 0.85;
+        // box-shadow: none;
+        scale: 0.95;
       }
     }
 
@@ -146,14 +150,23 @@ watchEffect(() => {
     gap: 10px;
 
     .dot {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
       background-color: $grey;
     }
 
-    .active-dot {
+    .active {
       background-color: $violet;
+    }
+
+    .checked {
+      background-color: #00a485;
+    }
+
+    .active-checked {
+      background-color: #00a485;
+      box-shadow: inset 2px 0px 0px $violet, inset 0px 2px 0px $violet, inset -2px 0px 0px $violet, inset 0px -2px 0px $violet,;
     }
   }
 }

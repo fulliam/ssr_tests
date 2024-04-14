@@ -47,13 +47,13 @@ const handleChange = () => {
   emit('update:modelValue', true);
 };
 
-const titleColors = {
+const titleColors = ref({
   'Red': '#ff0063',
   'Green': '#50b2ea',
   'Blue': '#50ea53',
   'Yes' : '#2bb116',
   'No': '#bc7912'
-};
+});
 </script>
 
 <style scoped lang="scss">
@@ -61,43 +61,25 @@ button {
   --el-color-black: black;
     display: flex;
     flex-direction: column;
-    // border-radius: 10px;
-    padding: 20px;
-    background: rgba(206, 206, 186, 0.075);
-    border: 2px solid --el-color-black;
-    box-shadow: 15px 15px 0px #9721c2;
+    padding: 25px;
+    background: #a607e099;
+    border: none;
+    border-radius: 12px;
     position: relative;
     z-index: 2;
-    animation: slideAnimation-473dba16 3s forwards;
+    animation: showIn 0.5s forwards;
     cursor: pointer;
-    width: 90%;
-    height: 20%;
-    transition: background 0.4s, color 0.4s;
-    left: -2%;
+    width: 100%;
+    gap: 20px;
+    transition: scale 0.4s;
 
     @include phone {
         margin: 0;
-        padding: 40px;
         white-space: nowrap;
     }
 
-    &:hover {
-      background-color: lighten($violet, 20%);
-    }
-
     &:active {
-      background-color: lighten($green, 20%);
-    }
-
-    @keyframes slideAnimation {
-      0% {
-        transform: translateX(-110%);
-        box-shadow: 350vw 15px 0px $violet;
-      }
-      100% {
-        transform: translateX(0);
-        box-shadow: 15px -15px 0px $violet;
-      }
+      scale: 0.95;
     }
 
     h3 {

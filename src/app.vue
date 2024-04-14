@@ -32,12 +32,42 @@ const handleThemeSwitcher = () => {
 
 onMounted(() => {
   const root = document.documentElement;
-  currentTheme.value = getComputedStyle(root).getPropertyValue('color-scheme').trim();
+  // currentTheme.value = getComputedStyle(root).getPropertyValue('color-scheme').trim();
+  currentTheme.value = 'dark';
+  root.style.setProperty('color-scheme', 'dark');
 });
 </script>
 
 <style scoped lang="scss">
 @import './assets/styles/index.scss';
+
+// :root {
+//   overflow: scroll;
+//   scroll-behavior: smooth;
+//   scrollbar-base-color: #f8b1ff;
+//   scrollbar-track-color: aqua;
+//   ::-webkit-scrollbar,
+//   ::-webkit-scrollbar-button,
+//   ::-webkit-scrollbar-track,
+//   ::-webkit-scrollbar-track-piece,
+//   ::-webkit-scrollbar-thumb,
+//   ::-webkit-scrollbar-corner,
+//   ::-webkit-resizer {
+//     background: lighten($violet, 10%);
+
+//     &:hover{
+//       background: lighten($violet, 10%);
+//     }
+//   }
+
+//   ::-webkit-scrollbar-thumb {
+//     background: $violet;
+//   }
+
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: darken($violet, 20%);
+//   }
+// }
 
 ul {
   display: flex;
@@ -59,16 +89,14 @@ h3 {
 }
 
 .theme-switcher {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  background: #f8b1ff;
-  border: 5px solid $violet;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  background: $violet;
+  border: 2px solid $violet;
   padding: 5px;
   height: 42px;
   width: 42px;
-  min-width: 42px;
-  min-height: 42px;
   border-radius: 6px;
   cursor: pointer;
   transition: color 0.3s, background 0.3s;
@@ -79,7 +107,7 @@ h3 {
 
   &:hover {
     color: white;
-    background: darken(#f8b1ff, 20%);
+    background: #00a485;
   }
 }
 </style>

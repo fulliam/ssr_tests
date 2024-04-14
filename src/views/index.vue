@@ -5,7 +5,6 @@
       :questions="questions"
       @finished="handleQuizFinish"
     />
-
     <Results
       v-else
       :result="results"
@@ -41,5 +40,6 @@ section {
   flex-direction: row;
   gap: 40px;
   width: 100%;
+  height: 90vh;
 }
 </style>

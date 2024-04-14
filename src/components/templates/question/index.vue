@@ -1,8 +1,10 @@
 <template>
+  <!-- <img class="question-img" v-if="props.src" :src="props.src" :alt="props.alt" /> -->
+
   <div class="question">
-    <h2 v-html="question"></h2>
+    <h2 v-html="props.question"></h2>
     <div
-      v-for="(answer, index) in answers"
+      v-for="(answer, index) in props.answers"
       :key="index"
       class="answers"
     >
@@ -20,8 +22,17 @@
 import { defineProps } from 'vue';
 import Answer from '@/components/templates/answer/index.vue';
 import { useStore } from '@/store/quiz';
+import chechik from '@/assets/images/chechick.jpg';
 
 const props = defineProps({
+  src: {
+    type: String,
+    default: chechik
+  },
+  alt: {
+    type: String,
+    default: 'test from fu11i@m'
+  },
   question: {
     type: String,
     default: ''
@@ -52,25 +63,27 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
 .question {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  height: 85vh;
+  width: 95%;
 
   @include phone {
       gap: 00px;
       height: 100%;
-    }
+  }
+
+  &-img {
+    height: 50%;
+    width: 95%;
+    display: flex;
+    object-fit: contain;
+  }
 
   h2 {
     display: flex;
     flex-direction: column;
     background: #00a485;
     padding: 10px;
-    border: 2px solid black;
-    border: dashed;
-    margin: 65px 65px 0px 65px;
+    border-radius: 12px;
     position: relative;
-    left: -2%;
-    box-shadow: 10px 10px 0px $violet;
     letter-spacing: 5px;
     @include Halvar-Breit(500, 32, $black);
 
@@ -84,20 +97,12 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
 
   .answers {
     transition: opacity 0.5s;
-    animation: showIn-f5995dad 0.5s forwards;
+    animation: showIn 0.5s forwards;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  @keyframes showIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    padding-top: 20px;
   }
 }
 </style>

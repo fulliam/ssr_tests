@@ -6,7 +6,9 @@ export const useStore = defineStore({
   state: () => ({
     questions: [
       {
-        question: 'What is...  <br/><span style="background-color: #9721c2; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: end; border: 2px solid black;">...your</span> favorite color?',
+        src: './images/chechick.jpg',
+        alt: 'Чечик это нейтрал',
+        question: 'What is...  <br/><span style="background-color: #9721c2; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">...your</span> favorite color?',
         answers: [
           { text: 'Red', description: 'A vibrant color', value: false },
           { text: 'Blue', description: 'The color of the sky', value: false },
@@ -14,6 +16,8 @@ export const useStore = defineStore({
         ]
       },
       {
+        src: './images/masik.jpg',
+        alt: 'Масик это ',
         question: 'Do <span style="background-color: #fd4868; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">you</span> like ice cream?',
         answers: [
           { text: 'Yes', description: 'I love it!', value: false },
@@ -21,7 +25,9 @@ export const useStore = defineStore({
         ]
       },
       {
-        question: 'Which animal do <span style="background-color: #fde948; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black; border-radius: 20px;">you</span> prefer?',
+        src: './images/shtrikh.jpg',
+        alt: 'Штрих это ',
+        question: 'Which animal do <span style="background-color: #fde948; width: min-content; padding: 7px; margin: 7px; display: flex; align-self: start; border: 2px solid black;">you</span> prefer?',
         answers: [
           { text: 'Cats', description: 'Independent and graceful', value: false },
           { text: 'Dogs', description: 'Loyal and energetic', value: false },
