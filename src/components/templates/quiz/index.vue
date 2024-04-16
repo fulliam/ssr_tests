@@ -1,4 +1,8 @@
 <template>
+  <span class="questions-counter">
+    {{ currentQuestion + 1 }}/{{ questions.length }}
+  </span>
+
   <div v-if="questions && questions.length > 0" class="quiz">
     <Question
       :src="questions[currentQuestion].src"
@@ -19,6 +23,7 @@
           'checked': question.answers.some((answer: any) => answer.value === true),
           'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
         }"
+        @click="jumpToQuestion(index)"
       >
       </div>
     </div>
@@ -31,7 +36,7 @@
         :disabled="currentQuestion === 0"
         @click="prevQuestion"
       >
-        Prev
+        Предыдущий
       </el-button>
 
       <el-button
@@ -41,7 +46,7 @@
         :disabled="currentQuestion === questions.length - 1"
         @click="nextQuestion"
       >
-        Next
+        Следующий
       </el-button>
     </div>
   </div>
@@ -73,6 +78,10 @@ const prevQuestion = () => {
   }
 };
 
+const jumpToQuestion = (index: number) => {
+  currentQuestion.value = index;
+};
+
 const emit = defineEmits(['finished']);
 
 watchEffect(() => {
@@ -81,12 +90,33 @@ watchEffect(() => {
   );
 
   if (allAnswered) {
-    emit('finished');
+    emit('finished', true);
+  } else {
+    emit('finished', false);
   }
 });
 </script>
 
 <style scoped lang="scss">
+.questions-counter {
+  position: fixed;
+  right: 10px;
+  top: 60px;
+  background: $violet;
+  border: 2px solid $violet;
+  // padding: 5px;
+  height: 38px;
+  width: 38px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include Halvar-Breit(700, 14, $white);
+}
+
 .quiz {
   display: flex;
   flex-direction: column;
@@ -122,7 +152,7 @@ watchEffect(() => {
       cursor: pointer;
       // box-shadow: 10px 10px black;
       transition: background-color 0.3s, scale 0.3s; //, box-shadow 0.3s;
-      @include Halvar-Breit(700, 24, $white);
+      @include Halvar-Breit(700, 16, $white);
 
       &:hover {
         background-color: darken($blue, 10%);
@@ -154,6 +184,7 @@ watchEffect(() => {
       height: 24px;
       border-radius: 4px;
       background-color: $grey;
+      cursor: pointer;
     }
 
     .active {

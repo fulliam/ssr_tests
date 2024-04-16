@@ -85,12 +85,7 @@ button {
     }
 
     h3 {
-      // display: flex;
-      // flex-direction: row;
-      // justify-content: space-between;
-      // align-items: center;
       margin: 0;
-      // word-wrap: break-word;
       white-space: normal;
     }
 
@@ -100,9 +95,6 @@ button {
     }
 
     p {
-      // display: flex;
-      // flex-direction: row;
-      // justify-content: space-between;
       word-wrap: break-word;
       @include Irish-Grover(400, 14, $black, 1.5);
 

@@ -82,19 +82,30 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
 
   h2 {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    // flex-direction: column;
     background: #00a485;
+    max-height: 80px;
+    min-height: 80px;
     padding: 10px;
     border-radius: 12px;
     position: relative;
     letter-spacing: 5px;
     @include Halvar-Breit(500, 32, $black);
 
+    @include smallDesktop {
+      @include Halvar-Breit(500, 24, $black);
+    }
+
+    @include tablet {
+      @include Halvar-Breit(500, 18, $black);
+    }
+
     @include phone {
       margin: 0;
       margin-bottom: 20px;
 
-      @include Halvar-Breit(400, 16, $black);
+      @include Halvar-Breit(400, 18, $black);
     }
   }
 
@@ -105,7 +116,9 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px 0;
+    max-height: 100px;
+    min-height: 100px;
 
     .active {
       background-color: #00a485;

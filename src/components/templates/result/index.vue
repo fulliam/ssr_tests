@@ -1,7 +1,7 @@
 <template>
   <div class="results">
-    <h2>Your Results</h2>
-    <p>{{ result }}</p>
+    <h2>Твои типы:</h2>
+    <p v-html="result"></p>
     <button @click="reset">Refresh</button>
   </div>
 </template>

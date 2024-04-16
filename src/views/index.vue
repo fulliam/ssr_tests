@@ -21,17 +21,31 @@ import { useStore } from '@/store/quiz';
 
 const store = useStore();
 
-let questions = store.questions;
-let showResults = ref(false);
+const questions = ref([]);
+const showResults = ref(false);
 
 const results = computed(() => {
   return showResults.value ? store.result : '';
 });
 
-const handleQuizFinish = async () => {
-  await store.getResults();
-  showResults.value = true;
+const handleQuizFinish = async (isFinish: boolean) => {
+  if (isFinish && questions.value.length > 0) {
+    await store.getResults().then(() => {
+      showResults.value = true;
+    });
+  }
 };
+
+const handleGetQuestions = async () => {
+  await store.getQuestions().then(() => {
+    questions.value = store.questions;
+    showResults.value = false;
+  });
+};
+
+onMounted(() => {
+  handleGetQuestions();
+});
 </script>
 
 <style scoped lang="scss">
