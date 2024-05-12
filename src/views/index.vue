@@ -1,12 +1,18 @@
 <template>
   <section>
+    <Sex
+      v-if="!store.sex"
+    />
+    <Age
+      v-if="!store.age && store.sex"
+    />
     <Quiz
-      v-if="!showResults"
+      v-if="!showResults && (store.sex && store.age)"
       :questions="questions"
       @finished="handleQuizFinish"
     />
     <Results
-      v-else
+      v-if="showResults && (store.sex && store.age)"
       :result="results"
       @reset="showResults = false"
     />
@@ -15,6 +21,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import Sex from '@/components/templates/sex/index.vue';
+import Age from '@/components/templates/age/index.vue';
 import Quiz from '@/components/templates/quiz/index.vue';
 import Results from '@/components/templates/result/index.vue';
 import { useStore } from '@/store/quiz';

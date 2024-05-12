@@ -2,12 +2,28 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 export const useStore = defineStore({
-  id: 'main',
-  state: () => ({
+  id: 'quiz',
+  state: (): {
+    sex: string;
+    age: number | null;
+    questions: any[];
+    result: string;
+  } => ({
+    sex: '',
+    age: null,
     questions: [],
     result: ''
   }),
+
   actions: {
+    setUserSex(value: string) {
+      this.sex = value;
+    },
+
+    setUserAge(value: number) {
+      this.age = value;
+    },
+
     async getQuestions() {
       try {
         const response = await axios.get('http://192.168.1.126:5050/api/questions/');
@@ -30,40 +46,28 @@ export const useStore = defineStore({
     async getResults() {
       const questionData = this.questions.map(question => {
         return {
+          sex: this.sex,
+          age: this.age,
           question: question.question,
           answers: question.answers
         };
       });
 
       try {
-        const response = await axios.post('http://192.168.1.126:5050/api/combinations/', questionData);
-        const { combinations } = response.data;
-        console.log('data', response.data);
-        const results = this.questions.map(question =>
-          question.answers.findIndex(answer => answer.value === true)
-        );
-
-        const output = combinations.find(
-          (item: any) => JSON.stringify(item.combination) === JSON.stringify(results)
-        );
-
-        if (output) {
-          console.log('Matched combination:', output);
-          this.result = output.result;
-        } else {
-          console.log('No matching combination found');
-          this.result = 'No matching combination found';
-        }
-
+        const response = await axios.post('http://192.168.1.126:5050/api/results/', questionData);
+        this.result = response.data;
       } catch (error) {
         console.error('Error fetching combinations:', error);
         return 'Error fetching combinations';
       }
     },
+
     resetState() {
       this.questions.forEach(question =>
         question.answers.forEach(answer => answer.value = false)
       );
+      this.sex = '';
+      this.age = null;
     }
   }
 });

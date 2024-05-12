@@ -13,20 +13,6 @@
       :question-index="currentQuestion"
       @next-step="nextQuestion"
     />
-    <div class="progress-dots">
-      <div
-        v-for="(question, index) in questions"
-        :key="index"
-        class="dot"
-        :class="{
-          'active': index === currentQuestion,
-          'checked': question.answers.some((answer: any) => answer.value === true),
-          'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
-        }"
-        @click="jumpToQuestion(index)"
-      >
-      </div>
-    </div>
 
     <div class="controls">
       <el-button
@@ -48,6 +34,21 @@
       >
         Следующий
       </el-button>
+    </div>
+
+    <div class="progress-dots">
+      <div
+        v-for="(question, index) in questions"
+        :key="index"
+        class="dot"
+        :class="{
+          'active': index === currentQuestion,
+          'checked': question.answers.some((answer: any) => answer.value === true),
+          'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
+        }"
+        @click="jumpToQuestion(index)"
+      >
+      </div>
     </div>
   </div>
 </template>
@@ -100,7 +101,7 @@ watchEffect(() => {
 <style scoped lang="scss">
 .questions-counter {
   position: fixed;
-  right: 10px;
+  right: 5px;
   top: 60px;
   background: $violet;
   border: 2px solid $violet;
@@ -114,7 +115,8 @@ watchEffect(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  @include Halvar-Breit(700, 14, $white);
+  user-select: none;
+  @include Halvar-Breit(700, 12, $white);
 }
 
 .quiz {
@@ -150,7 +152,7 @@ watchEffect(() => {
       width: 100%;
       height: 45px;
       cursor: pointer;
-      // box-shadow: 10px 10px black;
+      user-select: none;
       transition: background-color 0.3s, scale 0.3s; //, box-shadow 0.3s;
       @include Halvar-Breit(700, 16, $white);
 
@@ -179,12 +181,21 @@ watchEffect(() => {
     justify-content: center;
     gap: 10px;
 
+    @include phone {
+      gap: 6px;
+    }
+
     .dot {
       width: 24px;
       height: 24px;
       border-radius: 4px;
       background-color: $grey;
       cursor: pointer;
+
+      @include phone {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     .active {

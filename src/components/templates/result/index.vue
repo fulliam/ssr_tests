@@ -1,8 +1,9 @@
 <template>
   <div class="results">
-    <h2>Твои типы:</h2>
-    <p v-html="result"></p>
-    <button @click="reset">Refresh</button>
+    <h2>Вы — {{ result }}</h2>
+    <button @click="reset">
+      <el-icon :size= "126" :color="'white'"><Refresh /></el-icon>
+    </button>
   </div>
 </template>
 
@@ -24,6 +25,24 @@ const reset = () => {
   store.resetState();
   emit('reset');
 };
+
+const createConfetti = () => {
+  window.confetti({
+    angle: 90, spread: 75,
+    particleCount: 100,
+    origin: { x: Math.random(), y: Math.random() }
+  });
+};
+
+const generateConfetti = () => {
+  for (let i = 0; i < 10; i++) {
+    createConfetti();
+  }
+};
+
+onBeforeMount(() => {
+  generateConfetti();
+});
 </script>
 
 <style scoped lang="scss">
@@ -34,5 +53,21 @@ const reset = () => {
   justify-content: center;
   width: 100%;
   gap: 20px;
+  @include Halvar-Breit(700, 48, $black);
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 1.6s;
+
+  &:hover {
+    rotate: -1080deg;
+  }
 }
 </style>

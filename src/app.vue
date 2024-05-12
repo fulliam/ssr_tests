@@ -1,7 +1,9 @@
 <template>
   <button class="theme-switcher" @click="handleThemeSwitcher">
-    <el-icon v-show="currentTheme === 'dark'" :size="32"><Moon /></el-icon>
-    <el-icon v-show="currentTheme === 'light'" :size="32"><Sunny /></el-icon>
+    <el-icon v-show="currentTheme.name === 'dark'" :size="32"><Moon /></el-icon>
+    <el-icon v-show="currentTheme.name === 'light'" :size="32"><Sunny /></el-icon>
+    <el-icon v-show="currentTheme.name === 'green'" :size="32"><Cloudy /></el-icon>
+    <el-icon v-show="currentTheme.name === 'purple'" :size="32"><Key /></el-icon>
   </button>
   <div class="container">
     <router-view v-slot="{ Component }">
@@ -10,32 +12,52 @@
       </Suspense>
     </router-view>
   </div>
+  <div class="lamp">
+    <div class="lava">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob top"></div>
+      <div class="blob bottom"></div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+// TODO: add pagination && uuid && DB for routing ssr on swiper lists after change
+const themes = [
+  { name: 'light', background: '#dab30f' },
+  { name: 'dark', background: '#C55353' },
+  { name: 'green', background: '#228B22' },
+  { name: 'purple', background: '#800080' }
+];
 
-let currentTheme = ref('light');
+let currentThemeIndex = ref(0);
+let currentTheme = ref(themes[currentThemeIndex.value]);
 
 const handleThemeSwitcher = () => {
   const root = document.documentElement;
-  let theme = getComputedStyle(root).getPropertyValue('color-scheme').trim();
 
-  if (theme === 'dark') {
-    root.style.setProperty('color-scheme', 'light');
-    currentTheme.value = 'light';
-  } else {
-    root.style.setProperty('color-scheme', 'dark');
-    currentTheme.value = 'dark';
-  }
+  currentThemeIndex.value = (currentThemeIndex.value + 1) % themes.length;
+
+  currentTheme.value = themes[currentThemeIndex.value];
+  root.style.setProperty('color-scheme', currentTheme.value.name);
+  root.style.background = currentTheme.value.background;
 };
 
 onMounted(() => {
   const root = document.documentElement;
-  // currentTheme.value = getComputedStyle(root).getPropertyValue('color-scheme').trim();
-  currentTheme.value = 'dark';
-  root.style.setProperty('color-scheme', 'dark');
+
+  root.style.setProperty('color-scheme', currentTheme.value.name);
+  root.style.background = currentTheme.value.background;
 });
+
 </script>
 
 <style scoped lang="scss">
@@ -90,7 +112,7 @@ h3 {
 
 .theme-switcher {
   position: fixed;
-  right: 10px;
+  right: 5px;
   top: 10px;
   background: $violet;
   border: 2px solid $violet;

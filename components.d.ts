@@ -15,10 +15,12 @@ declare module '@vue/runtime-core' {
     ElSwitch: typeof import('element-plus/lib')['ElSwitch']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TemplatesAge: typeof import('./src/components/templates/age/index.vue')['default']
     TemplatesAnswer: typeof import('./src/components/templates/answer/index.vue')['default']
     TemplatesQuestion: typeof import('./src/components/templates/question/index.vue')['default']
     TemplatesQuiz: typeof import('./src/components/templates/quiz/index.vue')['default']
     TemplatesResult: typeof import('./src/components/templates/result/index.vue')['default']
+    TemplatesSex: typeof import('./src/components/templates/sex/index.vue')['default']
     TemplatesUIInputsCheckbox: typeof import('./src/components/templates/UI/Inputs/Checkbox/index.vue')['default']
     UIInputsCheckbox: typeof import('./src/components/UI/Inputs/Checkbox/index.vue')['default']
   }
