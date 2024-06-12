@@ -14,6 +14,21 @@
       @next-step="nextQuestion"
     />
 
+    <div class="progress-dots">
+      <div
+        v-for="(question, index) in questions"
+        :key="index"
+        class="dot"
+        :class="{
+          'active': index === currentQuestion,
+          'checked': question.answers.some((answer: any) => answer.value === true),
+          'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
+        }"
+        @click="jumpToQuestion(index)"
+      >
+      </div>
+    </div>
+
     <div class="controls">
       <el-button
         type="primary"
@@ -34,21 +49,6 @@
       >
         Следующий
       </el-button>
-    </div>
-
-    <div class="progress-dots">
-      <div
-        v-for="(question, index) in questions"
-        :key="index"
-        class="dot"
-        :class="{
-          'active': index === currentQuestion,
-          'checked': question.answers.some((answer: any) => answer.value === true),
-          'active-checked': (index === currentQuestion && question.answers.some((answer: any) => answer.value === true))
-        }"
-        @click="jumpToQuestion(index)"
-      >
-      </div>
     </div>
   </div>
 </template>

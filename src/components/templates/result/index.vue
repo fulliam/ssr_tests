@@ -2,7 +2,7 @@
   <div class="results">
     <h2>Вы — {{ result }}</h2>
     <button @click="reset">
-      <el-icon :size= "126" :color="'white'"><Refresh /></el-icon>
+      <el-icon :size="126" :color="'white'"><Refresh /></el-icon>
     </button>
   </div>
 </template>

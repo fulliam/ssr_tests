@@ -70,8 +70,8 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
 .question {
   display: flex;
   flex-direction: column;
-  width: 85%;
-  height: 100vh;
+  width: 100%;
+  // height: 100vh;
   gap: 20px;
 
   @include phone {
@@ -82,7 +82,7 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
   article {
     min-height: 400px;
     // max-height: 70vh;
-    height: 70vh;
+    height: 65vh;
     width: 100%;
     overflow-y: scroll;
     display: flex;
@@ -138,6 +138,7 @@ const updateSwitch = (answerIndex: number, value: boolean) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     .active {
       background-color: #00a485;

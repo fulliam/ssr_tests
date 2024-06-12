@@ -17,12 +17,15 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     TemplatesAge: typeof import('./src/components/templates/age/index.vue')['default']
     TemplatesAnswer: typeof import('./src/components/templates/answer/index.vue')['default']
+    TemplatesCardsCard: typeof import('./src/components/templates/cards/Card/index.vue')['default']
+    TemplatesCardsSwipeCard: typeof import('./src/components/templates/cards/SwipeCard/index.vue')['default']
     TemplatesQuestion: typeof import('./src/components/templates/question/index.vue')['default']
     TemplatesQuiz: typeof import('./src/components/templates/quiz/index.vue')['default']
     TemplatesResult: typeof import('./src/components/templates/result/index.vue')['default']
     TemplatesSex: typeof import('./src/components/templates/sex/index.vue')['default']
     TemplatesUIInputsCheckbox: typeof import('./src/components/templates/UI/Inputs/Checkbox/index.vue')['default']
     UIInputsCheckbox: typeof import('./src/components/UI/Inputs/Checkbox/index.vue')['default']
+    UIMenusSideMenu: typeof import('./src/components/UI/Menus/SideMenu/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/lib')['ElLoadingDirective']

@@ -8,11 +8,13 @@ export const useStore = defineStore({
     age: number | null;
     questions: any[];
     result: string;
+    showLoader: boolean;
   } => ({
     sex: '',
     age: null,
     questions: [],
-    result: ''
+    result: '',
+    showLoader: true
   }),
 
   actions: {

@@ -21,15 +21,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useStore } from '@/store/quiz';
 import Sex from '@/components/templates/sex/index.vue';
 import Age from '@/components/templates/age/index.vue';
 import Quiz from '@/components/templates/quiz/index.vue';
 import Results from '@/components/templates/result/index.vue';
-import { useStore } from '@/store/quiz';
 
 const store = useStore();
 
-const questions = ref([]);
+const questions = ref<any>([]);
 const showResults = ref(false);
 
 const results = computed(() => {

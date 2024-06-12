@@ -60,7 +60,7 @@ const handleChange = () => {
   emit('update:modelValue', true);
 };
 
-const titleColors = ref({
+const titleColors = ref<any>({
   'Red': '#ff0063',
   'Green': '#50b2ea',
   'Blue': '#50ea53',
@@ -123,89 +123,20 @@ button {
   }
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-  outline: none;
-  appearance: none;
-  border-style: none;
-  color: color(blanco);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1,h2,h3,span,p {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background: color(two);
-
-  /*scrollbar-width: none;
-  overflow: hidden;
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }*/
-}
-
 body {
   position: relative;
   overflow: hidden;
   @include displayFlex(center, center, column);
-  padding: 2em;
-
-  &::-webkit-scrollbar {
-    background: color(negro);
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background: color(negro);
-  }
-  &::-webkit-scrollbar-thumb {
-    background: color(blanco);
-    border-radius: 1px;
-  }
-
-  &::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(#f00, #f0f);
-      clip-path: circle(30% at right 70%);
-    }
-  &::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(#2196f3, #e91e63);
-      clip-path: circle(20% at 10% 10%);
-    }
 
   .container {
-    position: relative;
-    z-index: 1;
-    @include displayFlex(center, center, row);
-    flex-wrap: wrap;
-    padding: 1em;
+    width: 100%;
+    height: 100%;
 
     .card {
       position: relative;
-      width: 90%;
-      height: 100px;
-      margin: 1em;
+      width: 80%;
+      height: 60px;
+      margin: 10px;
       background: rgba(255, 255, 255, 0.05);
       box-shadow: 0 10px 20px #00000030;
       border-radius: 15px;
@@ -217,9 +148,9 @@ body {
       --el-color-black: black;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 15px;
       z-index: 2;
-      animation: showIn-473dba16 0.5s forwards;
+      animation: showIn 0.5s forwards;
       cursor: pointer;
       transition: scale 0.4s;
       text-align: start;

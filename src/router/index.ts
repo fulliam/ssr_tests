@@ -10,12 +10,12 @@ export default function () {
         path: '/',
         name: 'index',
         component: () => import('@/views/index.vue')
+      },
+      {
+        path: '/matches',
+        name: 'matches',
+        component: () => import('@/views/matches.vue')
       }
-      // {
-      //   path: '/user',
-      //   name: 'user',
-      //   component: () => import('@/views/user.vue')
-      // },
       // {
       //   path: '/market',
       //   name: 'market',
